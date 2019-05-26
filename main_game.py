@@ -15,7 +15,7 @@ win_height = 918    # max window height
 egg_h    = 49       # egg height
 egg_w    = 38       # egg width
 egg_x    = 103.5    # egg initial x location
-egg_y    = 175      # egg initial y location
+egg_y    = 145      # egg initial y location
 
 basket_h = 150      # basket height
 basket_w = 170      # basket width
@@ -73,13 +73,13 @@ def init_env(h, w):
     backg = ImageTk.PhotoImage(Image.open('images/background1.jpg').resize((1155, 918)))
     canvas.create_image(0,0, anchor=NW, image=backg)
 
-    egg_img1 = ImageTk.PhotoImage(Image.open('images/egg1.jpg').resize((egg_w, egg_h)))
-    egg_img2 = ImageTk.PhotoImage(Image.open('images/egg1.jpg').resize((egg_w, egg_h)))
-    egg1     = canvas.create_image(egg_x,egg_y, anchor=NW, image=egg_img1)
-    egg2     = canvas.create_image(egg_x,egg_y, anchor=NW, image=egg_img2)
-
     wood_plank  = ImageTk.PhotoImage(Image.open('images/wooden plank1.jpg').resize((1079, 74)))
     canvas.create_image(38, 150, anchor=NW, image=wood_plank)
+
+    egg_img1 = ImageTk.PhotoImage(Image.open('images/egg1.jpg').resize((egg_w, egg_h)))
+    egg1     = canvas.create_image(egg_x,egg_y, anchor=NW, image=egg_img1)
+    egg2     = canvas.create_image(egg_x,egg_y, anchor=NW, image=egg_img1)
+
     wood_plank2 = ImageTk.PhotoImage(Image.open('images/wooden plank1.jpg').resize((w_width, 74)))
     canvas.create_image(0, 720, anchor=NW, image=wood_plank2)
 
@@ -101,7 +101,7 @@ def init_env(h, w):
     start_img = ImageTk.PhotoImage(Image.open('images/start.jpg'))
     start_id  = canvas.create_image(w_width/2, win_height/2, anchor=CENTER, image=start_img)
 
-    itm_list = [backg, wood_plank, wood_plank2, hens, basket_img, score_desc, start_img, egg_img1, egg_img2]
+    itm_list = [backg, wood_plank, wood_plank2, hens, basket_img, score_desc, start_img, egg_img1]
     return itm_list, egg1, egg2, basket, score_text, timer_text, start_id
 
 def init_hens():
